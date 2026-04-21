@@ -1,0 +1,47 @@
+spring:
+  datasource:
+    url: jdbc:tc:postgresql:15:///notifyhub_test
+    driver-class-name: org.testcontainers.jdbc.ContainerDatabaseDriver
+
+  jpa:
+    hibernate:
+      ddl-auto: create-drop
+    show-sql: true
+
+  sql:
+    init:
+      mode: never
+
+  cache:
+    type: redis
+
+  data:
+    redis:
+      host: localhost
+      port: 6370   # Embedded Redis port used in tests
+
+  rabbitmq:
+    host: localhost
+    port: 5672
+
+app:
+  jwt:
+    secret: 404E635266556A586E3272357538782F413F4428472B4B6250645367566B5970
+    expiration: 900000
+    refresh-expiration: 604800000
+
+  rabbitmq:
+    exchange: notification.exchange
+    queue: notification.queue
+    dlq: notification.dlq
+    routing-key-prefix: notification
+    dlq-routing-key: notification.failed
+    message-ttl: 60000
+
+  rate-limit:
+    max-requests: 10
+    window-seconds: 60
+
+logging:
+  level:
+    com.notifyhub: DEBUG
