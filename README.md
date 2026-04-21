@@ -137,7 +137,7 @@ docker compose logs -f app
 | Service | URL |
 |---|---|
 | API | http://localhost:8080 |
-| RabbitMQ Management | http://localhost:15672 (guest / guest) |
+| RabbitMQ Management | http://localhost:15672 |
 
 ### Stop
 
@@ -211,8 +211,8 @@ docker compose down
 | `REDIS_PASSWORD` | Redis password | — |
 | `RABBITMQ_HOST` | RabbitMQ host | `localhost` |
 | `RABBITMQ_PORT` | RabbitMQ port | `5672` |
-| `RABBITMQ_USERNAME` | RabbitMQ user | `guest` |
-| `RABBITMQ_PASSWORD` | RabbitMQ password | `guest` |
+| `RABBITMQ_USERNAME` | RabbitMQ user | — |
+| `RABBITMQ_PASSWORD` | RabbitMQ password | — |
 | `JWT_SECRET` | JWT signing secret | — |
 | `JWT_EXPIRATION` | Access token TTL (ms) | `900000` (15 min) |
 | `JWT_REFRESH_EXPIRATION` | Refresh token TTL (ms) | `604800000` (7 days) |
