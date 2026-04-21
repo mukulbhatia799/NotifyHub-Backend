@@ -8,9 +8,9 @@ spring:
     name: notify-hub
 
   datasource:
-    url: jdbc:postgresql://${DB_HOST:localhost}:${DB_PORT:5432}/${DB_NAME:notifyhub}
-    username: ${DB_USERNAME:notifyhub}
-    password: ${DB_PASSWORD:notifyhub_pass}
+    url: jdbc:postgresql://${PGHOST:${DB_HOST:localhost}}:${PGPORT:${DB_PORT:5432}}/${PGDATABASE:${DB_NAME:notifyhub}}
+    username: ${PGUSER:${DB_USERNAME:notifyhub}}
+    password: ${PGPASSWORD:${DB_PASSWORD:notifyhub_pass}}
     driver-class-name: org.postgresql.Driver
     hikari:
       maximum-pool-size: 10
@@ -56,9 +56,9 @@ spring:
 
   data:
     redis:
-      host: ${REDIS_HOST:localhost}
-      port: ${REDIS_PORT:6379}
-      password: ${REDIS_PASSWORD:}
+      host: ${REDISHOST:${REDIS_HOST:localhost}}
+      port: ${REDISPORT:${REDIS_PORT:6379}}
+      password: ${REDISPASSWORD:${REDIS_PASSWORD:}}
       timeout: 2000ms
       lettuce:
         pool:
